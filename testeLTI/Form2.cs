@@ -142,7 +142,7 @@ namespace testeLTI
                 int nFloatingIps = 0; int nNetworks = 0; int nRouters = 0;
                 try
                 {
-                    String url3 = "http://192.168.182.136:9696/v2.0/floatingips";
+                    String url3 = "http://127.0.0.1:9696/v2.0/floatingips";
                     responseString = myWebClient.DownloadString(url3);
                     var jo1 = JObject.Parse(responseString);
 
@@ -153,7 +153,7 @@ namespace testeLTI
 
                     //
 
-                    url3 = "http://192.168.182.136:9696/v2.0/networks";
+                    url3 = "http://127.0.0.1:9696/v2.0/networks";
                     responseString = myWebClient.DownloadString(url3);
                     jo1 = JObject.Parse(responseString);
 
@@ -164,7 +164,7 @@ namespace testeLTI
 
                     //
 
-                    url3 = "http://192.168.182.136:9696/v2.0/routers";
+                    url3 = "http://127.0.0.1:9696/v2.0/routers";
                     responseString = myWebClient.DownloadString(url3);
                     jo1 = JObject.Parse(responseString);
 
@@ -362,7 +362,7 @@ namespace testeLTI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAddImage_Click(object sender, EventArgs e)
         {
 
         }

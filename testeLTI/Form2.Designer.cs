@@ -67,7 +67,7 @@
             this.buttonDeleteVolume = new System.Windows.Forms.Button();
             this.labelOptionsVolumes = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAddImage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -444,22 +444,22 @@
             this.label13.TabIndex = 38;
             this.label13.Text = "Images";
             // 
-            // button1
+            // buttonAddImage
             // 
-            this.button1.Location = new System.Drawing.Point(767, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Add Image";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAddImage.Location = new System.Drawing.Point(767, 240);
+            this.buttonAddImage.Name = "buttonAddImage";
+            this.buttonAddImage.Size = new System.Drawing.Size(129, 23);
+            this.buttonAddImage.TabIndex = 39;
+            this.buttonAddImage.Text = "Add Image";
+            this.buttonAddImage.UseVisualStyleBackColor = true;
+            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 492);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.labelOptionsVolumes);
             this.Controls.Add(this.buttonDeleteVolume);
@@ -549,6 +549,6 @@
         private System.Windows.Forms.Button buttonDeleteVolume;
         private System.Windows.Forms.Label labelOptionsVolumes;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAddImage;
     }
 }
