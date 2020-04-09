@@ -28,12 +28,14 @@ namespace testeLTI
         }
 
 
-        private void button1_Click(object sender, EventArgs e)  /////////// CW + tab //////////////
+        private void buttonLogin_Click(object sender, EventArgs e) 
         {
             labelErrorNoConnection.Text = "";
             listBox1.Items.Clear();
+
             var myWebClient = new WebClient();
             myWebClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+            
             string authToken=null;
             string responseString = null;
             // demo - StrongAdminSecret
@@ -47,7 +49,6 @@ namespace testeLTI
             }
 
             String jsonToSend = "{\"auth\":{\"identity\":{\"methods\":[\"password\"],\"password\":{\"user\":{\"name\":\""+ user + "\",\"domain\":{\"name\":\"Default\"},\"password\":\"" + password + "\"}}}}}";
-            //scoped project// String jsonToSend = "{\"auth\": {\"identity\": {\"methods\": [\"password\"],\"password\": {\"user\": {\"name\": \"demo\",\"domain\": {\"name\": \"Default\"},\"password\": \"StrongAdminSecret\"}}},\"scope\": {\"project\": {\"id\": \"e4208946bad94b7b92b069f354b711d7\"}}}}";
 
             try
             {
@@ -65,24 +66,20 @@ namespace testeLTI
             }
             catch (WebException err)
             {
-                listBox1.Items.Add(err.Message.Trim());
+                labelErrorNoConnection.Text = "Error connecting to the API";
+                Console.WriteLine(err.Message.Trim());
+                return;
             }
-
-            if(authToken != null)
-            {
-                listBox1.Items.Add(authToken);
-                Console.WriteLine("\n" + authToken + "\n");      ///////////////////MANTER POR ENQUANTO, FEEDBACK VISUAL
-            }
-
 
             try { 
-                //Agora um get //GET servers e get projetos de um user//////
+                if(authToken == null)
+                {
+                    labelErrorNoConnection.Text = "Error: authToken shouldn't be null!";
+                    return;
+                }
                 myWebClient.Headers.Add("x-auth-token", authToken);
-                //String url = "http://127.0.0.1:8080/compute/v2.1/servers";
                 String url = "http://127.0.0.1:8080/identity/v3/auth/projects";
                 responseString = myWebClient.DownloadString(url);
-                listBox1.Items.Add("Response: " + responseString);           ///////////////////MANTER POR ENQUANTO, FEEDBACK VISUAL
-
 
                 deserialiseJSON(responseString);
 
@@ -100,14 +97,6 @@ namespace testeLTI
                     labelErrorNoConnection.Text = "Error connecting to the API";
                 }
             }
-            //var example1Model = new JavaScriptSerializer().Deserialize<Project>(responseString);
-            // var inief = JsonConvert.DeserializeObject<dynamic>(responseString);
-
-
-
-
-
-
         }
         
         protected void deserialiseJSON(string strJSON)
@@ -115,21 +104,12 @@ namespace testeLTI
            try
            {
                 var jo = JObject.Parse(strJSON);
-                //Console.WriteLine(jo["projects"]);
-                //List<Project> aaaaaa = new List<Project>();
 
                 foreach (var projects in jo["projects"])
                 {
-                    Project example1Model = projects.ToObject<Project>();
-                    //Console.WriteLine("id: " + example1Model.id);
-
                     Project prjjj = projects.ToObject<Project>();
-                    //Console.WriteLine(prjjj.id);
-
-                    //aaaaaa.Add(prjjj);
-                    //listBox1.Items.Add(example1Model.ToString() +"  ID:"+example1Model.id);
+                    
                     listBox1.Items.Add(prjjj);
-
                 }
            }
            catch (NullReferenceException ex)
@@ -152,9 +132,7 @@ namespace testeLTI
             {
                 Console.WriteLine(((Project)listBox1.SelectedItem).id);
 
-               // String id = ((Project)listBox1.SelectedItem).id;
-               
-                Form2 f2 = new Form2(((Project)listBox1.SelectedItem).id, user, password);
+                Form2 f2 = new Form2(((Project)listBox1.SelectedItem).id, user, password,((Project)listBox1.SelectedItem).name);
                 f2.ShowDialog();
 
 
@@ -164,21 +142,13 @@ namespace testeLTI
                 labelErrorNoProject.Text = "Error: selected project have an \n invalid structure";
                 Console.WriteLine("Error in the format of the response: " + exce.Message.ToString());
             }
-
-            /*foreach(Project projeto in listaProjetos)
-            {
-                if(listBox1.SelectedItem.ToString() == projeto.name.ToString())
-                {
-                    Console.WriteLine(projeto.id);
-                }
-            }*/
         }
 
         private void textBoxUser_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button1_Click(this, new EventArgs());
+                buttonLogin_Click(this, new EventArgs());
             }
         }
 
@@ -186,8 +156,18 @@ namespace testeLTI
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button1_Click(this, new EventArgs());
+                buttonLogin_Click(this, new EventArgs());
             }
         }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonProjectSelected_Click(this, new EventArgs());
+            }
+        }
+
+        
     }
 }

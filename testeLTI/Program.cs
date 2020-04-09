@@ -17,7 +17,6 @@ namespace testeLTI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            Class1 myClass1 = new Class1();
         }
     }
 }
