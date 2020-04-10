@@ -65,6 +65,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddImage.Designer.cs">
+      <DependentUpon>FormAddImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateInstance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="FormCreateVolume.Designer.cs">
       <DependentUpon>FormCreateVolume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteImage.Designer.cs">
+      <DependentUpon>FormDeleteImage.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDeleteVolume.cs">
       <SubType>Form</SubType>
@@ -108,11 +120,17 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddImage.resx">
+      <DependentUpon>FormAddImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateInstance.resx">
       <DependentUpon>FormCreateInstance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateVolume.resx">
       <DependentUpon>FormCreateVolume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteImage.resx">
+      <DependentUpon>FormDeleteImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteVolume.resx">
       <DependentUpon>FormDeleteVolume.cs</DependentUpon>

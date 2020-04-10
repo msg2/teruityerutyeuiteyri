@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textBoxUser = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelUser = new System.Windows.Forms.Label();
@@ -62,11 +60,7 @@
             this.listBox1.TabIndex = 1;
             this.listBox1.Tag = "";
             this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.buttonProjectSelected_Click);
             // 
             // textBoxUser
             // 
@@ -168,7 +162,6 @@
 
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox textBoxUser;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelUser;

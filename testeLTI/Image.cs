@@ -13,7 +13,7 @@ namespace testeLTI
         public string disk_format { get; set; }
         public string container_format { get; set; }
         public string visibility { get; set; }
-        public int size { get; set; }
+        public int? size { get; set; }
         public object virtual_size { get; set; }
         public string status { get; set; }
         public string checksum { get; set; }

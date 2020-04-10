@@ -41,10 +41,6 @@ namespace testeLTI
                 throw new Exception("ERROR passing project/user information between forms!");
             }
 
-            label1.Text = projectId; //////////////////////////////JUST DEBUG
-            label2.Text = user; //////////////////////////////JUST DEBUG
-            label3.Text = password; //////////////////////////////JUST DEBUG
-
             labelTitle.Text = $"Project \"{projectName}\" Summary:";
             myWebClient.Headers[HttpRequestHeader.ContentType] = "application/json";
             string authToken = null;
@@ -64,44 +60,48 @@ namespace testeLTI
                     }
                 }
                 globalAuthToken = authToken;
+                myWebClient.Headers.Add("x-auth-token", authToken);
+
             }
             catch (WebException err)
             {
-                listBox1.Items.Add(err.Message.Trim()); /////////////////////debug
                 labelErrors.Text = "Error connecting to the API";
                 Console.WriteLine(err.Message.Trim());
                 return;
             }
 
+            getInfo();
+            
+        }
 
+        protected void getInfo()
+        {
             try
             {
-                if (authToken == null)
+                if (globalAuthToken == null)
                 {
                     labelErrors.Text = "Error: authToken shouldn't be null!";
                     return;
                 }
 
-                myWebClient.Headers.Add("x-auth-token", authToken);
 
-                //String url = "http://127.0.0.1:8080/compute/v2.1/servers";
                 String url = "http://127.0.0.1:8080/compute/v2.1/limits";
-                responseString = myWebClient.DownloadString(url);
+                String responseString = myWebClient.DownloadString(url);
 
                 var jo = JObject.Parse(responseString);
                 DashLimitInfo server = jo["limits"]["absolute"].ToObject<DashLimitInfo>();
 
 
-
+                //GET RAM INFO
                 labelInstances.Text = $" {server.totalInstancesUsed} of {server.maxTotalInstances} used";
                 labelVCPUs.Text = $" {server.totalCoresUsed} of {server.maxTotalCores} used";
                 if (server.totalRAMUsed > 1024)
                 {
-                    labelRam.Text = $" {server.totalRAMUsed/1024.0}GB of {Math.Round(server.maxTotalRAMSize / 1024.0)}GB used";
+                    labelRam.Text = $" {server.totalRAMUsed / 1024.0}GB of {Math.Round(server.maxTotalRAMSize / 1024.0)}GB used";
                 }
                 else
                 {
-                    labelRam.Text = $" {server.totalRAMUsed}MB of {Math.Round(server.maxTotalRAMSize/1024.0)}GB used";
+                    labelRam.Text = $" {server.totalRAMUsed}MB of {Math.Round(server.maxTotalRAMSize / 1024.0)}GB used";
                 }
 
 
@@ -148,7 +148,7 @@ namespace testeLTI
 
                     foreach (var item in jo1["floatingips"])
                     {
-                        nFloatingIps++; 
+                        nFloatingIps++;
                     }
 
                     //
@@ -175,7 +175,7 @@ namespace testeLTI
                 }
                 catch (Exception ex)
                 {
-                    labelErrors.Text= "Error while getting nFloating IPs/nNetworks/nRouters";
+                    labelErrors.Text = "Error while getting nFloating IPs/nNetworks/nRouters";
                     Console.WriteLine("Error while getting nFloating IPs/nNetworks/nRouters - " + ex.Message);
                     return;
                 }
@@ -184,7 +184,8 @@ namespace testeLTI
                 labelFloating.Text = $" {nFloatingIps} used";
                 labelNetworks.Text = $"{nNetworks} used";
                 labelRouters.Text = $" {nRouters} used";
-
+                
+                getServers();
             }
             catch (Exception exc)
             {
@@ -194,7 +195,7 @@ namespace testeLTI
                 return;
             }
 
-            getServers();
+            //getServers();
 
         }
 
@@ -252,8 +253,12 @@ namespace testeLTI
                     if (response.StatusCode != HttpStatusCode.OK && response.StatusCode != HttpStatusCode.NoContent)
                     {
                         labelErrorsInstance.Text = "Error Deleting Instance";
+                        return;
                     }
+                   
+                    label1Instances.Text = "Instance deleted successfully ";
                     
+                    //getInfo();
 
                 }
                 catch (Exception exce)
@@ -262,17 +267,19 @@ namespace testeLTI
                     Console.WriteLine("Error del. instance: " + exce.Message.ToString());
                 }
 
-                getServers();
+                //getInfo();
             }
             else
             {
                 labelErrorsInstance.Text = "Delete aborted.";
             }
+            getInfo();
         }
 
         private void buttonRefreshInstances_Click(object sender, EventArgs e)
         {
-            getServers();
+            //getServers();
+            getInfo();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -282,15 +289,25 @@ namespace testeLTI
 
         private void buttonCreateInstance_Click(object sender, EventArgs e)
         {
-            FormCreateInstance fct = new FormCreateInstance(globalAuthToken);
-            fct.FormClosed += fct_FormClosed;
-            fct.Show();
+            using (var form = new FormCreateInstance(globalAuthToken))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.criou)
+                    {
+                        getInfo();
+                        label1Instances.Text = "Instance created successfully";
+                    }
+                }
+            }
         }
 
-        void fct_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            getServers();
-        }
+       // void fct_FormClosed(object sender, FormClosedEventArgs e)
+       // {
+        //    labelInstances.Text = "Instance created!";
+        //    getInfo();
+        //}
 
         private void buttonEditInstance_Click(object sender, EventArgs e)
         {
@@ -303,9 +320,18 @@ namespace testeLTI
             }
 
             string id = ((Server)listBox1.SelectedItem).id;
-            FormEditInstance fe = new FormEditInstance(globalAuthToken, id);
-            fe.FormClosed += fct_FormClosed;
-            fe.Show();
+            using (var form = new FormEditInstance(globalAuthToken, id))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.editou)
+                    {
+                        label1Instances.Text = "Instance edited successfully";
+                        getInfo();
+                    }
+                }
+            }
         }
 
         private void buttonCreateVolume_Click(object sender, EventArgs e)
@@ -321,6 +347,7 @@ namespace testeLTI
                     if (form.criou)
                     {
                         labelOptionsVolumes.Text = "Volume successfully created";
+                        getInfo();
                     }
                 }
             }
@@ -341,6 +368,7 @@ namespace testeLTI
                     if (form != null)
                     {
                         labelOptionsVolumes.Text = "Volume deleted successfully";
+                        getInfo();
                     }
                 }
             }
@@ -357,6 +385,7 @@ namespace testeLTI
                     if (form != null)
                     {
                         labelOptionsVolumes.Text = "Volume edited successfully";
+                        getInfo();
                     }
                 }
             }
@@ -364,7 +393,94 @@ namespace testeLTI
 
         private void buttonAddImage_Click(object sender, EventArgs e)
         {
+            using (var form = new FormAddImage(projectId, globalAuthToken))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form != null)
+                    {
+                        labelOptionsImages.Text = "Image created successfully";
+                        getInfo();
+                    }
+                }
+            }
+        }
 
+        private void labelOptionsImages_Click(object sender, EventArgs e)
+        {
+            labelOptionsImages.Text = "";
+        }
+
+        private void buttonDeleteImage_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormDeleteImage(projectId, globalAuthToken))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form != null)
+                    {
+                        labelOptionsImages.Text = "Image deleted successfully";
+                        getInfo();
+                    }
+                }
+            }
+        }
+
+        private void buttonOpenConsole_Click(object sender, EventArgs e)
+        {
+            labelErrorsInstance.Text = "";
+            label1Instances.Text = "";
+            if (listBox1.SelectedIndex == -1)
+            {
+                labelErrorsInstance.Text = "Please select the instance to open console!";
+                return;
+            }
+
+            string id = ((Server)listBox1.SelectedItem).id;
+            Console.WriteLine(id);
+
+            try
+            {
+                String jsonToSend = "{\"remote_console\":{\"protocol\":\"vnc\",\"type\":\"novnc\"}}";
+                myWebClient.Headers.Add("X-OpenStack-Nova-API-Version", "2.82");
+
+                String url = "http://127.0.0.1:8080/compute/v2.1/servers/"+id+"/remote-consoles";
+
+                var responseString = myWebClient.UploadString(url, jsonToSend);
+               
+                var jo = JObject.Parse(responseString);
+
+                if (jo["remote_console"]["url"] == null)
+                {
+                    labelErrors.Text = "Error: Instance didnt returned a valid Url";
+                    return;
+                }
+
+                var urlVNC = jo["remote_console"]["url"].ToString();
+
+                try
+                {
+                System.Diagnostics.Process.Start(urlVNC);
+
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                labelErrorsInstance.Text = "Error requesting a VNC url!";
+                Console.WriteLine("Error: " + ex.Message.ToString());
+            }
+
+        }
+
+        private void label1Instances_Click(object sender, EventArgs e)
+        {
+            label1Instances.Text = "";
         }
     }
 }

@@ -9,7 +9,7 @@ namespace testeLTI
     {
         private String authToken;
         WebClient myWebClient = new WebClient();
-
+        public bool criou;
         public FormCreateInstance(String authToken)
         {
             this.authToken = authToken;
@@ -121,6 +121,7 @@ namespace testeLTI
                 return;
             }
 
+            criou = true;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

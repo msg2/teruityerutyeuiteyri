@@ -68,6 +68,10 @@
             this.labelOptionsVolumes = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.buttonAddImage = new System.Windows.Forms.Button();
+            this.labelOptionsImages = new System.Windows.Forms.Label();
+            this.buttonDeleteImage = new System.Windows.Forms.Button();
+            this.buttonOpenConsole = new System.Windows.Forms.Button();
+            this.label1Instances = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -100,7 +104,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(70, 223);
+            this.listBox1.Location = new System.Drawing.Point(70, 222);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(447, 147);
             this.listBox1.TabIndex = 3;
@@ -357,7 +361,7 @@
             // 
             this.labelErrorsInstance.AutoSize = true;
             this.labelErrorsInstance.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorsInstance.Location = new System.Drawing.Point(69, 428);
+            this.labelErrorsInstance.Location = new System.Drawing.Point(69, 425);
             this.labelErrorsInstance.Name = "labelErrorsInstance";
             this.labelErrorsInstance.Size = new System.Drawing.Size(0, 13);
             this.labelErrorsInstance.TabIndex = 30;
@@ -375,7 +379,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(296, 457);
+            this.buttonBack.Location = new System.Drawing.Point(472, 485);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(256, 23);
             this.buttonBack.TabIndex = 32;
@@ -438,7 +442,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(804, 204);
+            this.label13.Location = new System.Drawing.Point(851, 204);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 15);
             this.label13.TabIndex = 38;
@@ -446,7 +450,7 @@
             // 
             // buttonAddImage
             // 
-            this.buttonAddImage.Location = new System.Drawing.Point(767, 240);
+            this.buttonAddImage.Location = new System.Drawing.Point(814, 240);
             this.buttonAddImage.Name = "buttonAddImage";
             this.buttonAddImage.Size = new System.Drawing.Size(129, 23);
             this.buttonAddImage.TabIndex = 39;
@@ -454,11 +458,57 @@
             this.buttonAddImage.UseVisualStyleBackColor = true;
             this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
             // 
+            // labelOptionsImages
+            // 
+            this.labelOptionsImages.AutoSize = true;
+            this.labelOptionsImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
+            this.labelOptionsImages.ForeColor = System.Drawing.Color.LimeGreen;
+            this.labelOptionsImages.Location = new System.Drawing.Point(811, 324);
+            this.labelOptionsImages.Name = "labelOptionsImages";
+            this.labelOptionsImages.Size = new System.Drawing.Size(0, 15);
+            this.labelOptionsImages.TabIndex = 40;
+            this.labelOptionsImages.Click += new System.EventHandler(this.labelOptionsImages_Click);
+            // 
+            // buttonDeleteImage
+            // 
+            this.buttonDeleteImage.Location = new System.Drawing.Point(814, 284);
+            this.buttonDeleteImage.Name = "buttonDeleteImage";
+            this.buttonDeleteImage.Size = new System.Drawing.Size(129, 23);
+            this.buttonDeleteImage.TabIndex = 41;
+            this.buttonDeleteImage.Text = "Delete Image";
+            this.buttonDeleteImage.UseVisualStyleBackColor = true;
+            this.buttonDeleteImage.Click += new System.EventHandler(this.buttonDeleteImage_Click);
+            // 
+            // buttonOpenConsole
+            // 
+            this.buttonOpenConsole.Location = new System.Drawing.Point(166, 445);
+            this.buttonOpenConsole.Name = "buttonOpenConsole";
+            this.buttonOpenConsole.Size = new System.Drawing.Size(236, 23);
+            this.buttonOpenConsole.TabIndex = 42;
+            this.buttonOpenConsole.Text = "OpenConsole";
+            this.buttonOpenConsole.UseVisualStyleBackColor = true;
+            this.buttonOpenConsole.Click += new System.EventHandler(this.buttonOpenConsole_Click);
+            // 
+            // label1Instances
+            // 
+            this.label1Instances.AutoSize = true;
+            this.label1Instances.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
+            this.label1Instances.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label1Instances.Location = new System.Drawing.Point(81, 423);
+            this.label1Instances.Name = "label1Instances";
+            this.label1Instances.Size = new System.Drawing.Size(0, 15);
+            this.label1Instances.TabIndex = 43;
+            this.label1Instances.Click += new System.EventHandler(this.label1Instances_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 492);
+            this.ClientSize = new System.Drawing.Size(1039, 520);
+            this.Controls.Add(this.label1Instances);
+            this.Controls.Add(this.buttonOpenConsole);
+            this.Controls.Add(this.buttonDeleteImage);
+            this.Controls.Add(this.labelOptionsImages);
             this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.labelOptionsVolumes);
@@ -550,5 +600,9 @@
         private System.Windows.Forms.Label labelOptionsVolumes;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonAddImage;
+        private System.Windows.Forms.Label labelOptionsImages;
+        private System.Windows.Forms.Button buttonDeleteImage;
+        private System.Windows.Forms.Button buttonOpenConsole;
+        private System.Windows.Forms.Label label1Instances;
     }
 }

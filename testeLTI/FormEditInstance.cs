@@ -18,6 +18,7 @@ namespace testeLTI
         WebClient myWebClient = new WebClient();
         private String projectId;
         private Server server;
+        public bool editou;
 
         public FormEditInstance(String authToken, String projectId)
         {
@@ -73,8 +74,10 @@ namespace testeLTI
             {
                 labelErrors.Text = ex.Message.ToString();
                 Console.WriteLine("Error: " + ex.Message.ToString());
+                return;
             }
 
+            editou = true;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
