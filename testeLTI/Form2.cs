@@ -482,5 +482,58 @@ namespace testeLTI
         {
             label1Instances.Text = "";
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCreateNetwork_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormCreateNetwork(projectId, globalAuthToken))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.criou)
+                    {
+                        labelOptionsVolumes.Text = "Network successfully created";
+                        getInfo();
+                    }
+                }
+            }
+        }
+
+        private void buttonEditNetwork_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormEditNetwork(projectId, globalAuthToken))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form != null)
+                    {
+                        labelOptionsVolumes.Text = "Network edited successfully";
+                        getInfo();
+                    }
+                }
+            }
+        }
+
+        private void buttonDeleteNetwork_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormDeleteNetwork(projectId, globalAuthToken))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form != null)
+                    {
+                        labelOptionsVolumes.Text = "Network deleted successfully";
+                        getInfo();
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace testeLTI
 {
-    partial class FormDeleteVolume
+    partial class FormDeleteNetwork
     {
         /// <summary>
         /// Required designer variable.
@@ -29,49 +29,48 @@
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.labelErrors = new System.Windows.Forms.Label();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(87, 88);
+            this.listBox1.Location = new System.Drawing.Point(41, 70);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(286, 134);
+            this.listBox1.Size = new System.Drawing.Size(291, 238);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(405, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelErrors
             // 
             this.labelErrors.AutoSize = true;
-            this.labelErrors.ForeColor = System.Drawing.Color.Red;
-            this.labelErrors.Location = new System.Drawing.Point(421, 179);
+            this.labelErrors.Location = new System.Drawing.Point(405, 209);
             this.labelErrors.Name = "labelErrors";
             this.labelErrors.Size = new System.Drawing.Size(0, 13);
-            this.labelErrors.TabIndex = 5;
+            this.labelErrors.TabIndex = 2;
             // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(470, 130);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 6;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // FormDeleteVolume
+            // FormDeleteNetwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 280);
-            this.Controls.Add(this.buttonDelete);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelErrors);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
-            this.Name = "FormDeleteVolume";
-            this.Text = "FormDeleteVolume";
-            this.Load += new System.EventHandler(this.FormDeleteVolume_Load);
+            this.Name = "FormDeleteNetwork";
+            this.Text = "FormDeleteNetwork";
+            this.Load += new System.EventHandler(this.FormDeleteNetwork_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelErrors;
-        private System.Windows.Forms.Button buttonDelete;
     }
 }

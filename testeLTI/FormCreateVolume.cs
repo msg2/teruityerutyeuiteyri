@@ -42,7 +42,7 @@ namespace testeLTI
             myWebClient.Headers.Add("x-auth-token", authToken);
 
             String jsonToSend; String responseString=null;
-            if (textBoxName.Text.Trim().Length < 1)
+            if (textBoxDescription.Text.Trim().Length < 1)
             {
                  jsonToSend = "{\"volume\":{\"name\":\"" + textBoxName.Text.Trim() + "\",\"size\": \"" + numericUpDown1.Value + "\"}}";
             }
@@ -70,6 +70,19 @@ namespace testeLTI
 
         }
 
-        
+        private void labelName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormCreateVolume_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
