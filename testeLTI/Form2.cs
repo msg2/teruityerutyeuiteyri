@@ -297,7 +297,7 @@ namespace testeLTI
                     if (form.criou)
                     {
                         getInfo();
-                        label1Instances.Text = "Instance created successfully";
+                        label1Instances.Text = "Instance created successfully, including floating IP and socat in openstack vm";
                     }
                 }
             }
