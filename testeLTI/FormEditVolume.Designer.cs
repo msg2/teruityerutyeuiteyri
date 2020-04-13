@@ -104,6 +104,7 @@
             this.textBoxOldName.ReadOnly = true;
             this.textBoxOldName.Size = new System.Drawing.Size(100, 20);
             this.textBoxOldName.TabIndex = 11;
+            this.textBoxOldName.TextChanged += new System.EventHandler(this.textBoxOldName_TextChanged);
             // 
             // textBoxNewName
             // 
@@ -212,6 +213,7 @@
             this.radioButtonSize.TabStop = true;
             this.radioButtonSize.Text = "Mudar Size";
             this.radioButtonSize.UseVisualStyleBackColor = true;
+            this.radioButtonSize.CheckedChanged += new System.EventHandler(this.radioButtonSize_CheckedChanged);
             // 
             // FormEditVolume
             // 

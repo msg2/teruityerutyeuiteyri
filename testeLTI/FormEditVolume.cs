@@ -145,13 +145,10 @@ namespace testeLTI
                 listBox1.Items.Clear();
                 String url = "http://127.0.0.1:8080/volume/v3/" + projectId + "/volumes/detail";
                 var responseString = myWebClient.DownloadString(url);
-
                 var jo = JObject.Parse(responseString);
-
                 foreach (var volumes in jo["volumes"])
                 {
                     Volume volume = volumes.ToObject<Volume>();
-
                     listBox1.Items.Add(volume);
                 }
             }
@@ -194,6 +191,16 @@ namespace testeLTI
                 numericNewSize.Enabled = false;
                 numericNewSize.Value = ((Volume)listBox1.SelectedItem).size;
             }
+        }
+
+        private void radioButtonSize_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxOldName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

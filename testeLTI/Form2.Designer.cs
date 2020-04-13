@@ -72,6 +72,10 @@
             this.buttonDeleteImage = new System.Windows.Forms.Button();
             this.buttonOpenConsole = new System.Windows.Forms.Button();
             this.label1Instances = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.buttonCreateNetwork = new System.Windows.Forms.Button();
+            this.buttonEditNetwork = new System.Windows.Forms.Button();
+            this.buttonDeleteNetwork = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -500,11 +504,56 @@
             this.label1Instances.TabIndex = 43;
             this.label1Instances.Click += new System.EventHandler(this.label1Instances_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(851, 324);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(66, 15);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "Networks";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // buttonCreateNetwork
+            // 
+            this.buttonCreateNetwork.Location = new System.Drawing.Point(814, 346);
+            this.buttonCreateNetwork.Name = "buttonCreateNetwork";
+            this.buttonCreateNetwork.Size = new System.Drawing.Size(129, 23);
+            this.buttonCreateNetwork.TabIndex = 45;
+            this.buttonCreateNetwork.Text = "Create Network";
+            this.buttonCreateNetwork.UseVisualStyleBackColor = true;
+            this.buttonCreateNetwork.Click += new System.EventHandler(this.buttonCreateNetwork_Click);
+            // 
+            // buttonEditNetwork
+            // 
+            this.buttonEditNetwork.Location = new System.Drawing.Point(814, 378);
+            this.buttonEditNetwork.Name = "buttonEditNetwork";
+            this.buttonEditNetwork.Size = new System.Drawing.Size(129, 23);
+            this.buttonEditNetwork.TabIndex = 46;
+            this.buttonEditNetwork.Text = "Edit Network";
+            this.buttonEditNetwork.UseVisualStyleBackColor = true;
+            this.buttonEditNetwork.Click += new System.EventHandler(this.buttonEditNetwork_Click);
+            // 
+            // buttonDeleteNetwork
+            // 
+            this.buttonDeleteNetwork.Location = new System.Drawing.Point(814, 407);
+            this.buttonDeleteNetwork.Name = "buttonDeleteNetwork";
+            this.buttonDeleteNetwork.Size = new System.Drawing.Size(129, 23);
+            this.buttonDeleteNetwork.TabIndex = 47;
+            this.buttonDeleteNetwork.Text = "Delete Network";
+            this.buttonDeleteNetwork.UseVisualStyleBackColor = true;
+            this.buttonDeleteNetwork.Click += new System.EventHandler(this.buttonDeleteNetwork_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 520);
+            this.Controls.Add(this.buttonDeleteNetwork);
+            this.Controls.Add(this.buttonEditNetwork);
+            this.Controls.Add(this.buttonCreateNetwork);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label1Instances);
             this.Controls.Add(this.buttonOpenConsole);
             this.Controls.Add(this.buttonDeleteImage);
@@ -604,5 +653,9 @@
         private System.Windows.Forms.Button buttonDeleteImage;
         private System.Windows.Forms.Button buttonOpenConsole;
         private System.Windows.Forms.Label label1Instances;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button buttonCreateNetwork;
+        private System.Windows.Forms.Button buttonEditNetwork;
+        private System.Windows.Forms.Button buttonDeleteNetwork;
     }
 }

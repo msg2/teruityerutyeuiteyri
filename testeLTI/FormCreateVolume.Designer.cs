@@ -48,6 +48,7 @@
             this.labelName.Size = new System.Drawing.Size(38, 13);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Name:";
+            this.labelName.Click += new System.EventHandler(this.labelName_Click);
             // 
             // textBoxName
             // 
@@ -55,6 +56,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 1;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // buttonCreate
             // 
@@ -132,6 +134,7 @@
             this.Controls.Add(this.labelName);
             this.Name = "FormCreateVolume";
             this.Text = "FormCreateVolume";
+            this.Load += new System.EventHandler(this.FormCreateVolume_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
