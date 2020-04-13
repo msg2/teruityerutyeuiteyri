@@ -180,8 +180,12 @@ namespace testeLTI
             {
                 textBoxNewDesc.Enabled = false;
                 textBoxNewName.Enabled = false;
-                textBoxNewName.Text = ((Volume)listBox1.SelectedItem).name;
-                textBoxNewDesc.Text = ((Volume)listBox1.SelectedItem).description;
+                if (listBox1.SelectedIndex != -1)
+                {
+                    textBoxNewName.Text = ((Volume)listBox1.SelectedItem).name;
+                    textBoxNewDesc.Text = ((Volume)listBox1.SelectedItem).description;
+                }
+                
                 numericNewSize.Enabled = true;
             }
             else
@@ -189,7 +193,10 @@ namespace testeLTI
                 textBoxNewDesc.Enabled = true;
                 textBoxNewName.Enabled = true;
                 numericNewSize.Enabled = false;
-                numericNewSize.Value = ((Volume)listBox1.SelectedItem).size;
+                if (listBox1.SelectedIndex != -1)
+                {
+                   numericNewSize.Value = ((Volume)listBox1.SelectedItem).size;
+                }
             }
         }
 
