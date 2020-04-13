@@ -497,7 +497,7 @@ namespace testeLTI
                 {
                     if (form.criou)
                     {
-                        labelOptionsVolumes.Text = "Network successfully created";
+                        labelOptionsNetworks.Text = "Network successfully created";
                         getInfo();
                     }
                 }
@@ -513,7 +513,7 @@ namespace testeLTI
                 {
                     if (form != null)
                     {
-                        labelOptionsVolumes.Text = "Network edited successfully";
+                        labelOptionsNetworks.Text = "Network edited successfully";
                         getInfo();
                     }
                 }
@@ -529,7 +529,7 @@ namespace testeLTI
                 {
                     if (form != null)
                     {
-                        labelOptionsVolumes.Text = "Network deleted successfully";
+                        labelOptionsNetworks.Text = "Network deleted successfully";
                         getInfo();
                     }
                 }

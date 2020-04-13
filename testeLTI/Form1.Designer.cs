@@ -152,7 +152,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.buttonLogin);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Login Page";
             this.ResumeLayout(false);
             this.PerformLayout();
 
