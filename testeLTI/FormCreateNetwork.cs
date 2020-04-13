@@ -17,6 +17,7 @@ namespace testeLTI
         WebClient myWebClient = new WebClient();
         public bool adminTrue = true;
         public bool adminFalse = false;
+        public bool labelVisi = false;
         public bool criou { get; set; }
 
         public FormCreateNetwork(String projectId, String authToken)
@@ -64,7 +65,9 @@ namespace testeLTI
                 jsonToSend = "{\"network\":{\"name\":\"" + textBoxName.Text.Trim() + "\",\"admin_state_up\": \"" + adminFalse + "\"}}";
                 
             }
-            
+
+
+        
             try
             {
                 Console.WriteLine(jsonToSend);
@@ -82,11 +85,6 @@ namespace testeLTI
                 labelErrors.Text = responseString;
                 Console.WriteLine("Error: " + ex.Message.ToString());
             }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void FormCreateNetwork_Load(object sender, EventArgs e)

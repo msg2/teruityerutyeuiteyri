@@ -54,7 +54,7 @@ namespace testeLTI
                 jsonToSend = "{\"network\":{\"name\":\"" + textBoxNewName.Text.Trim() + "\",\"admin_state_up\": \"" + adminFalse + "\"}}";
 
             }
-            if (textBoxNewName.Text != textBoxOldName.Text)
+            if (textBoxNewName.Text != textBoxOldName.Text || checkBox1.Checked || !(checkBox1.Checked))
             {
                 try
                 {
@@ -89,6 +89,8 @@ namespace testeLTI
             textBoxOldName.Text = ((Network)listBox1.SelectedItem).name;
 
             textBoxNewName.Text = ((Network)listBox1.SelectedItem).name;
+            
+            checkBox1.Checked = ((Network)listBox1.SelectedItem).admin_state_up;
 
             networkID = ((Network)listBox1.SelectedItem).id;
         }

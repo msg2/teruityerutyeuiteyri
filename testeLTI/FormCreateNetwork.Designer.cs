@@ -31,7 +31,6 @@
             this.NomeDeRede = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.labelErrors = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -65,20 +64,9 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(45, 163);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(92, 17);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Create subnet";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(291, 123);
+            this.button1.Location = new System.Drawing.Point(45, 163);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -89,7 +77,7 @@
             // labelErrors
             // 
             this.labelErrors.AutoSize = true;
-            this.labelErrors.Location = new System.Drawing.Point(291, 163);
+            this.labelErrors.Location = new System.Drawing.Point(42, 202);
             this.labelErrors.Name = "labelErrors";
             this.labelErrors.Size = new System.Drawing.Size(0, 13);
             this.labelErrors.TabIndex = 5;
@@ -101,7 +89,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelErrors);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.NomeDeRede);
@@ -118,7 +105,6 @@
         private System.Windows.Forms.Label NomeDeRede;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelErrors;
     }
