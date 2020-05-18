@@ -168,7 +168,56 @@ namespace testeLTI
             }
         }
 
-        
+        private void buttonGetNamespaces_Click(object sender, EventArgs e)
+        {
+            var myWebClient = new WebClient();
+            labelErrorGetNamespace.Text = "";
+            listBoxNamespaces.Items.Clear();
+
+            try
+            {
+                String url = "http://127.0.0.1:8081/api/v1/namespaces";
+                var responseString = myWebClient.DownloadString(url);
+
+                var jo = JObject.Parse(responseString);
+                NamespacesList namespacesList = jo.ToObject<NamespacesList>();
+
+                if(namespacesList.items==null || namespacesList.items.Count == 0)
+                {
+                    labelErrorGetNamespace.Text = "Não existe qualquer namespace";
+                    return;
+                }
+
+                foreach (var inamespace in namespacesList.items)
+                {
+                    //Console.WriteLine(inamespace.metadata.name);
+                    listBoxNamespaces.Items.Add(inamespace.metadata.name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error connecting to kubernetes: " + ex.Message);
+                labelErrorGetNamespace.Text = "Error connecting to kubernetes: " + ex.Message;
+            }
+           
+        }
+
+        private void buttonSelectNamespace_Click(object sender, EventArgs e)
+        {
+            labelErrorSelectNamespace.Text = "";
+            var myWebClient = new WebClient();
+
+
+            if (listBoxNamespaces.SelectedIndex == -1)
+            {
+                labelErrorSelectNamespace.Text = "No Namespace selected!";
+                return;
+            }
+
+            FormNamespaceDashboard fnd = new FormNamespaceDashboard(listBoxNamespaces.SelectedItem.ToString());
+            fnd.ShowDialog();
+
+        }
 
     }
 }
