@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
+using k8s;
 using Newtonsoft;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -22,6 +23,7 @@ namespace testeLTI
     {
         private String user;
         private String password;
+        public IKubernetes client;
         public Form1()
         {
             InitializeComponent();
@@ -174,32 +176,22 @@ namespace testeLTI
             labelErrorGetNamespace.Text = "";
             listBoxNamespaces.Items.Clear();
 
-            try
+            var config = new KubernetesClientConfiguration { Host = "http://127.0.0.1:8081" };
+            client = new Kubernetes(config);
+
+            var namespaces = client.ListNamespace();
+            if (namespaces.Items.Count == 0)
             {
-                String url = "http://127.0.0.1:8081/api/v1/namespaces";
-                var responseString = myWebClient.DownloadString(url);
-
-                var jo = JObject.Parse(responseString);
-                NamespacesList namespacesList = jo.ToObject<NamespacesList>();
-
-                if(namespacesList.items==null || namespacesList.items.Count == 0)
+                labelErrorGetNamespace.Text = "Não existe qualquer namespace";
+            }
+            else
+            {
+                foreach (var ns in namespaces.Items)
                 {
-                    labelErrorGetNamespace.Text = "Não existe qualquer namespace";
-                    return;
-                }
-
-                foreach (var inamespace in namespacesList.items)
-                {
-                    //Console.WriteLine(inamespace.metadata.name);
-                    listBoxNamespaces.Items.Add(inamespace.metadata.name);
+                    Console.WriteLine(ns.Metadata.Name);
+                    listBoxNamespaces.Items.Add(ns.Metadata.Name);
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error connecting to kubernetes: " + ex.Message);
-                labelErrorGetNamespace.Text = "Error connecting to kubernetes: " + ex.Message;
-            }
-           
         }
 
         private void buttonSelectNamespace_Click(object sender, EventArgs e)
@@ -214,7 +206,7 @@ namespace testeLTI
                 return;
             }
 
-            FormNamespaceDashboard fnd = new FormNamespaceDashboard(listBoxNamespaces.SelectedItem.ToString());
+            FormNamespaceDashboard fnd = new FormNamespaceDashboard(client, listBoxNamespaces.SelectedItem.ToString());
             fnd.ShowDialog();
 
         }

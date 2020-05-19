@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using k8s;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,57 +17,31 @@ namespace testeLTI
     {
         String namespaceSelected;
         WebClient myWebClient = new WebClient();
+        IKubernetes client;
 
-        public FormNamespaceDashboard(String namespaceSelected)
+        public FormNamespaceDashboard(IKubernetes client, String namespaceSelected)
         {
             InitializeComponent();
             this.namespaceSelected = namespaceSelected;
+            this.client = client;
         }
 
         private void FormNamespaceDashboard_Load(object sender, EventArgs e)
         {
             try
             {
-                String url = "http://127.0.0.1:8081/api/v1/namespaces/" + namespaceSelected + "/pods";
-                var responseString = myWebClient.DownloadString(url);
+                var podsList = client.ListNamespacedPod(namespaceSelected);
+                labelPods.Text = podsList.Items.Count.ToString();
                 
-                var pods = JObject.Parse(responseString);
-                NSPods objectPods = pods.ToObject<NSPods>();
-                var nPods = objectPods.items.Count;
+                var servicesList = client.ListNamespacedService(namespaceSelected);
+                labelServices.Text = servicesList.Items.Count.ToString();
 
-                labelPods.Text = nPods.ToString();
+                var replicasList = client.ListNamespacedReplicaSet(namespaceSelected);
+                labelReplicaSets.Text = replicasList.Items.Count.ToString();
 
-                /////
-                
-                url = "http://127.0.0.1:8081/api/v1/namespaces/" + namespaceSelected + "/services";
-                responseString = myWebClient.DownloadString(url);
+                var deploymentsList = client.ListNamespacedDeployment(namespaceSelected);
+                labelDeploy.Text = deploymentsList.Items.Count.ToString();
 
-                var services = JObject.Parse(responseString);
-                NSPods objectServices = services.ToObject<NSPods>(); 
-                var nServices = objectServices.items.Count;
-
-                labelServices.Text = nServices.ToString();
-
-                /////
-                url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/" + namespaceSelected + "/replicasets";
-                responseString = myWebClient.DownloadString(url);
-
-                var repsets = JObject.Parse(responseString);
-                NSPods objectRepset = repsets.ToObject<NSPods>();
-                var nReplicasets = objectRepset.items.Count;
-
-                labelReplicaSets.Text = nReplicasets.ToString();
-
-                ///
-
-                url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/" + namespaceSelected + "/deployments";
-                responseString = myWebClient.DownloadString(url);
-
-                var deployments = JObject.Parse(responseString);
-                NSPods objectDeployments = deployments.ToObject<NSPods>();
-                var nDeployments = objectDeployments.items.Count;
-
-                labelDeploy.Text = nDeployments.ToString();
 
             }
             catch (Exception ex)
