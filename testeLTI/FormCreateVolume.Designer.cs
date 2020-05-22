@@ -134,7 +134,7 @@
             this.Controls.Add(this.labelName);
             this.Name = "FormCreateVolume";
             this.Text = "FormCreateVolume";
-            this.Load += new System.EventHandler(this.FormCreateVolume_Load);
+            this.Load += new System.EventHandler(this.FormCreateVolume_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

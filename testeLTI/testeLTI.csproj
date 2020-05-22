@@ -238,6 +238,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateDeployment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateDeployment.Designer.cs">
+      <DependentUpon>FormCreateDeployment.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateNetwork.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,12 @@
     </Compile>
     <Compile Include="FormCreateVolume.Designer.cs">
       <DependentUpon>FormCreateVolume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteDeployment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteDeployment.Designer.cs">
+      <DependentUpon>FormDeleteDeployment.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDeleteImage.cs">
       <SubType>Form</SubType>
@@ -322,6 +334,9 @@
     <EmbeddedResource Include="FormAddImage.resx">
       <DependentUpon>FormAddImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateDeployment.resx">
+      <DependentUpon>FormCreateDeployment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateInstance.resx">
       <DependentUpon>FormCreateInstance.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateVolume.resx">
       <DependentUpon>FormCreateVolume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteDeployment.resx">
+      <DependentUpon>FormDeleteDeployment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteImage.resx">
       <DependentUpon>FormDeleteImage.cs</DependentUpon>

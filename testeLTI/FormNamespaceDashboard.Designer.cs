@@ -39,6 +39,10 @@
             this.labelPods = new System.Windows.Forms.Label();
             this.labelErrors = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonCreateDeployment = new System.Windows.Forms.Button();
+            this.labelDeployment = new System.Windows.Forms.Label();
+            this.buttonDeleteDeployment = new System.Windows.Forms.Button();
+            this.buttonRefreshInstances = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDeploy
@@ -144,11 +148,56 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 105);
             this.flowLayoutPanel1.TabIndex = 47;
             // 
+            // buttonCreateDeployment
+            // 
+            this.buttonCreateDeployment.Location = new System.Drawing.Point(85, 219);
+            this.buttonCreateDeployment.Name = "buttonCreateDeployment";
+            this.buttonCreateDeployment.Size = new System.Drawing.Size(131, 23);
+            this.buttonCreateDeployment.TabIndex = 48;
+            this.buttonCreateDeployment.Text = "Create Deployment";
+            this.buttonCreateDeployment.UseVisualStyleBackColor = true;
+            this.buttonCreateDeployment.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // labelDeployment
+            // 
+            this.labelDeployment.AutoSize = true;
+            this.labelDeployment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
+            this.labelDeployment.ForeColor = System.Drawing.Color.LimeGreen;
+            this.labelDeployment.Location = new System.Drawing.Point(65, 294);
+            this.labelDeployment.Name = "labelDeployment";
+            this.labelDeployment.Size = new System.Drawing.Size(0, 15);
+            this.labelDeployment.TabIndex = 49;
+            // 
+            // buttonDeleteDeployment
+            // 
+            this.buttonDeleteDeployment.Location = new System.Drawing.Point(85, 261);
+            this.buttonDeleteDeployment.Name = "buttonDeleteDeployment";
+            this.buttonDeleteDeployment.Size = new System.Drawing.Size(131, 23);
+            this.buttonDeleteDeployment.TabIndex = 50;
+            this.buttonDeleteDeployment.Text = "Delete Deployment";
+            this.buttonDeleteDeployment.UseVisualStyleBackColor = true;
+            this.buttonDeleteDeployment.Click += new System.EventHandler(this.buttonDeleteDeployment_Click);
+            // 
+            // buttonRefreshInstances
+            // 
+            this.buttonRefreshInstances.Font = new System.Drawing.Font("Wingdings 3", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonRefreshInstances.Location = new System.Drawing.Point(13, 76);
+            this.buttonRefreshInstances.Name = "buttonRefreshInstances";
+            this.buttonRefreshInstances.Size = new System.Drawing.Size(29, 27);
+            this.buttonRefreshInstances.TabIndex = 51;
+            this.buttonRefreshInstances.Text = "Q";
+            this.buttonRefreshInstances.UseVisualStyleBackColor = true;
+            this.buttonRefreshInstances.Click += new System.EventHandler(this.buttonRefreshInstances_Click);
+            // 
             // FormNamespaceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRefreshInstances);
+            this.Controls.Add(this.buttonDeleteDeployment);
+            this.Controls.Add(this.labelDeployment);
+            this.Controls.Add(this.buttonCreateDeployment);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.labelDeploy);
             this.Controls.Add(this.labelServices);
@@ -181,5 +230,9 @@
         private System.Windows.Forms.Label labelPods;
         private System.Windows.Forms.Label labelErrors;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button buttonCreateDeployment;
+        private System.Windows.Forms.Label labelDeployment;
+        private System.Windows.Forms.Button buttonDeleteDeployment;
+        private System.Windows.Forms.Button buttonRefreshInstances;
     }
 }
