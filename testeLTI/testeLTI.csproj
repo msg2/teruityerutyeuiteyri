@@ -268,6 +268,12 @@
     <Compile Include="FormCreateInstance.Designer.cs">
       <DependentUpon>FormCreateInstance.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateService.Designer.cs">
+      <DependentUpon>FormCreateService.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateVolume.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,12 @@
     </Compile>
     <Compile Include="FormDeleteNetwork.Designer.cs">
       <DependentUpon>FormDeleteNetwork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteService.Designer.cs">
+      <DependentUpon>FormDeleteService.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDeleteVolume.cs">
       <SubType>Form</SubType>
@@ -358,6 +370,9 @@
     <EmbeddedResource Include="FormCreateNetwork.resx">
       <DependentUpon>FormCreateNetwork.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateService.resx">
+      <DependentUpon>FormCreateService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateVolume.resx">
       <DependentUpon>FormCreateVolume.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteNetwork.resx">
       <DependentUpon>FormDeleteNetwork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteService.resx">
+      <DependentUpon>FormDeleteService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteVolume.resx">
       <DependentUpon>FormDeleteVolume.cs</DependentUpon>

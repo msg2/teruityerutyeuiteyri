@@ -47,6 +47,8 @@
             this.buttonCreateJob = new System.Windows.Forms.Button();
             this.buttonDeleteJob = new System.Windows.Forms.Button();
             this.labelJobs = new System.Windows.Forms.Label();
+            this.buttonCreateService = new System.Windows.Forms.Button();
+            this.buttonDeleteService = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDeploy
@@ -232,11 +234,34 @@
             this.labelJobs.TabIndex = 54;
             this.labelJobs.Text = "labelJobs";
             // 
+            // buttonCreateService
+            // 
+            this.buttonCreateService.Location = new System.Drawing.Point(378, 219);
+            this.buttonCreateService.Name = "buttonCreateService";
+            this.buttonCreateService.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonCreateService.Size = new System.Drawing.Size(131, 23);
+            this.buttonCreateService.TabIndex = 56;
+            this.buttonCreateService.Text = "Create Service";
+            this.buttonCreateService.UseVisualStyleBackColor = true;
+            this.buttonCreateService.Click += new System.EventHandler(this.buttonCreateService_Click);
+            // 
+            // buttonDeleteService
+            // 
+            this.buttonDeleteService.Location = new System.Drawing.Point(378, 261);
+            this.buttonDeleteService.Name = "buttonDeleteService";
+            this.buttonDeleteService.Size = new System.Drawing.Size(131, 23);
+            this.buttonDeleteService.TabIndex = 57;
+            this.buttonDeleteService.Text = "Delete Service";
+            this.buttonDeleteService.UseVisualStyleBackColor = true;
+            this.buttonDeleteService.Click += new System.EventHandler(this.buttonDeleteService_Click);
+            // 
             // FormNamespaceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDeleteService);
+            this.Controls.Add(this.buttonCreateService);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelJobs);
             this.Controls.Add(this.labelPods);
@@ -285,5 +310,7 @@
         private System.Windows.Forms.Button buttonDeleteJob;
         private System.Windows.Forms.Label labelJobs;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonCreateService;
+        private System.Windows.Forms.Button buttonDeleteService;
     }
 }

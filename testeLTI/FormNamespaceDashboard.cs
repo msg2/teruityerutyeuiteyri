@@ -150,6 +150,41 @@ namespace testeLTI
                 }
             }
         }
+
+        private void buttonCreateService_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormCreateService(selectedNamespace))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.criou)
+                    {
+
+                        System.Threading.Thread.Sleep(2000); //dar tempo para os dados do dashboard atualizarem
+                        labelDeployment.Text = "Service sucessfully created -- ClusterIP: "+form.clusterIP;
+                        this.FormNamespaceDashboard_Load(sender, e);
+                    }
+                }
+            }
+        }
+
+        private void buttonDeleteService_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormDeleteService(selectedNamespace))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.apagou)
+                    {
+                        System.Threading.Thread.Sleep(2000); //dar tempo para os dados do dashboard atualizarem
+                        labelDeployment.Text = "Service eliminated sucessfully";
+                        this.FormNamespaceDashboard_Load(sender, e);
+                    }
+                }
+            }
+        }
     }
 
 }
