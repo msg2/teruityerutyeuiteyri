@@ -12,54 +12,50 @@ using System.Windows.Forms;
 
 namespace testeLTI
 {
-    public partial class FormDeleteDeployment : Form
+    public partial class FormDeleteJob : Form
     {
         String selectedNamespace;
         public bool apagou { get; set; }
 
-        public FormDeleteDeployment(String selectedNamespace)
+        public FormDeleteJob(String selectedNamespace)
         {
             InitializeComponent();
             this.selectedNamespace = selectedNamespace;
         }
 
-        private void FormDeleteDeployment_Load(object sender, EventArgs e)
+        private void FormDeleteJob_Load(object sender, EventArgs e)
         {
             WebClient myWebClient = new WebClient();
 
-            string url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/" + selectedNamespace + "/deployments";
+            string url = "http://127.0.0.1:8081/apis/batch/v1/namespaces/" + selectedNamespace + "/jobs";
             var responseString = myWebClient.DownloadString(url);
 
-            var deployments = JObject.Parse(responseString);
-            NSPods objectDeployments = deployments.ToObject<NSPods>();
-            foreach (var item in objectDeployments.items)
+            var jobs = JObject.Parse(responseString);
+            NSPods objectJobs = jobs.ToObject<NSPods>();
+            foreach (var item in objectJobs.items)
             {
                 Console.WriteLine(item.metadata.name);
                 listBox1.Items.Add(item.metadata.name);
             }
-            //var nDeployments = objectDeployments.items.Count;
-            
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
             labelErrors.Text = "";
             if (listBox1.SelectedIndex == -1)
             {
-                labelErrors.Text = "Please select the Deployment to delete";
+                labelErrors.Text = "Please select the Job to delete";
             }
 
-            String deployment = listBox1.SelectedItem.ToString();
+            String job = listBox1.SelectedItem.ToString();
 
-            var confirmResult = MessageBox.Show($"Do you really want to delete the deployment \"{deployment}\"?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show($"Do you really want to delete the  \"{job}\"?", "Delete Confirmation", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
                 try
                 {
-                    String url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/"+selectedNamespace+"/deployments/"+ deployment;
-                    // var responseString = myWebClient.DownloadString(url);
-
+                    String url = "http://127.0.0.1:8081/apis/batch/v1/namespaces/" + selectedNamespace + "/jobs/" + job;
+                   
                     WebRequest request = WebRequest.Create(url);
                     request.Method = "DELETE";
 
@@ -67,9 +63,9 @@ namespace testeLTI
 
                     Console.WriteLine(response);
                     Console.WriteLine(response.StatusCode.ToString());
-                    if (response.StatusCode != (HttpStatusCode)202 && response.StatusCode != HttpStatusCode.NoContent && response.StatusCode!=HttpStatusCode.OK)
+                    if (response.StatusCode != (HttpStatusCode)202 && response.StatusCode != HttpStatusCode.NoContent && response.StatusCode != HttpStatusCode.OK)
                     {
-                        labelErrors.Text = "Error Deleting Deployment";
+                        labelErrors.Text = "Error Deleting Job";
                         return;
                     }
 
@@ -80,8 +76,8 @@ namespace testeLTI
                 }
                 catch (Exception exce)
                 {
-                    labelErrors.Text = "Error Deleting Deployment";
-                    Console.WriteLine("Error del. Deployment: " + exce.Message.ToString());
+                    labelErrors.Text = "Error Deleting Job";
+                    Console.WriteLine("Error del. Job: " + exce.Message.ToString());
                 }
 
             }

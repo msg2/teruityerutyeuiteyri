@@ -43,6 +43,8 @@
             this.labelDeployment = new System.Windows.Forms.Label();
             this.buttonDeleteDeployment = new System.Windows.Forms.Button();
             this.buttonRefreshInstances = new System.Windows.Forms.Button();
+            this.buttonCreateJob = new System.Windows.Forms.Button();
+            this.buttonDeleteJob = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDeploy
@@ -189,11 +191,33 @@
             this.buttonRefreshInstances.UseVisualStyleBackColor = true;
             this.buttonRefreshInstances.Click += new System.EventHandler(this.buttonRefreshInstances_Click);
             // 
+            // buttonCreateJob
+            // 
+            this.buttonCreateJob.Location = new System.Drawing.Point(260, 219);
+            this.buttonCreateJob.Name = "buttonCreateJob";
+            this.buttonCreateJob.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreateJob.TabIndex = 52;
+            this.buttonCreateJob.Text = "Create Job";
+            this.buttonCreateJob.UseVisualStyleBackColor = true;
+            this.buttonCreateJob.Click += new System.EventHandler(this.buttonCreateJob_Click);
+            // 
+            // buttonDeleteJob
+            // 
+            this.buttonDeleteJob.Location = new System.Drawing.Point(260, 261);
+            this.buttonDeleteJob.Name = "buttonDeleteJob";
+            this.buttonDeleteJob.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteJob.TabIndex = 53;
+            this.buttonDeleteJob.Text = "Delete Job";
+            this.buttonDeleteJob.UseVisualStyleBackColor = true;
+            this.buttonDeleteJob.Click += new System.EventHandler(this.buttonDeleteJob_Click);
+            // 
             // FormNamespaceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDeleteJob);
+            this.Controls.Add(this.buttonCreateJob);
             this.Controls.Add(this.buttonRefreshInstances);
             this.Controls.Add(this.buttonDeleteDeployment);
             this.Controls.Add(this.labelDeployment);
@@ -234,5 +258,7 @@
         private System.Windows.Forms.Label labelDeployment;
         private System.Windows.Forms.Button buttonDeleteDeployment;
         private System.Windows.Forms.Button buttonRefreshInstances;
+        private System.Windows.Forms.Button buttonCreateJob;
+        private System.Windows.Forms.Button buttonDeleteJob;
     }
 }

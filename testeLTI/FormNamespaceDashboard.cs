@@ -112,6 +112,41 @@ namespace testeLTI
         {
             this.FormNamespaceDashboard_Load(sender, e);
         }
+
+        private void buttonCreateJob_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormCreateJob(selectedNamespace))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.criou)
+                    {
+                        System.Threading.Thread.Sleep(2000); //dar tempo para os dados do dashboard atualizarem
+
+                        labelDeployment.Text = "Job successfully created";
+                        this.FormNamespaceDashboard_Load(sender, e);
+                    }
+                }
+            }
+        }
+
+        private void buttonDeleteJob_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormDeleteJob(selectedNamespace))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.apagou)
+                    {
+                        System.Threading.Thread.Sleep(2000); //dar tempo para os dados do dashboard atualizarem
+                        labelDeployment.Text = "Job eliminated sucessfully";
+                        this.FormNamespaceDashboard_Load(sender, e);
+                    }
+                }
+            }
+        }
     }
 
 }

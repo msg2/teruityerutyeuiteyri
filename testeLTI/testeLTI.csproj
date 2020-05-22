@@ -244,6 +244,12 @@
     <Compile Include="FormCreateDeployment.Designer.cs">
       <DependentUpon>FormCreateDeployment.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateJob.Designer.cs">
+      <DependentUpon>FormCreateJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateNetwork.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,12 @@
     </Compile>
     <Compile Include="FormDeleteImage.Designer.cs">
       <DependentUpon>FormDeleteImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteJob.Designer.cs">
+      <DependentUpon>FormDeleteJob.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDeleteNetwork.cs">
       <SubType>Form</SubType>
@@ -340,6 +352,9 @@
     <EmbeddedResource Include="FormCreateInstance.resx">
       <DependentUpon>FormCreateInstance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateJob.resx">
+      <DependentUpon>FormCreateJob.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateNetwork.resx">
       <DependentUpon>FormCreateNetwork.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteImage.resx">
       <DependentUpon>FormDeleteImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteJob.resx">
+      <DependentUpon>FormDeleteJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeleteNetwork.resx">
       <DependentUpon>FormDeleteNetwork.cs</DependentUpon>
