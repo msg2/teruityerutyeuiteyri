@@ -43,6 +43,9 @@ namespace testeLTI
                 var deploymentsList = client.ListNamespacedDeployment(selectedNamespace);
                 labelDeploy.Text = deploymentsList.Items.Count.ToString();
 
+                var JobsList = client.ListNamespacedJob(selectedNamespace);
+                labelJobs.Text = JobsList.Items.Count.ToString();
+
                 /*
                 IDictionary<string, string> tryLabel = new Dictionary<string, string>();
                 tryLabel.Add("123", "345");
@@ -51,7 +54,7 @@ namespace testeLTI
                 var status = new V1DeploymentStatus();  
                 client.CreateNamespacedDeployment(new V1Deployment("apps/v1", "Deployment", metadata, spec, status), selectedNamespace) ;
                 */
-                
+
                 /* string deploymentName;
                 deploymentName = "dddd";//passar sempre para lowecases
 

@@ -39,12 +39,14 @@
             this.labelPods = new System.Windows.Forms.Label();
             this.labelErrors = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonCreateDeployment = new System.Windows.Forms.Button();
             this.labelDeployment = new System.Windows.Forms.Label();
             this.buttonDeleteDeployment = new System.Windows.Forms.Button();
             this.buttonRefreshInstances = new System.Windows.Forms.Button();
             this.buttonCreateJob = new System.Windows.Forms.Button();
             this.buttonDeleteJob = new System.Windows.Forms.Button();
+            this.labelJobs = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelDeploy
@@ -150,6 +152,16 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 105);
             this.flowLayoutPanel1.TabIndex = 47;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(346, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "Nr. of Jobs: ";
+            // 
             // buttonCreateDeployment
             // 
             this.buttonCreateDeployment.Location = new System.Drawing.Point(85, 219);
@@ -211,11 +223,23 @@
             this.buttonDeleteJob.UseVisualStyleBackColor = true;
             this.buttonDeleteJob.Click += new System.EventHandler(this.buttonDeleteJob_Click);
             // 
+            // labelJobs
+            // 
+            this.labelJobs.AutoSize = true;
+            this.labelJobs.Location = new System.Drawing.Point(429, 105);
+            this.labelJobs.Name = "labelJobs";
+            this.labelJobs.Size = new System.Drawing.Size(51, 13);
+            this.labelJobs.TabIndex = 54;
+            this.labelJobs.Text = "labelJobs";
+            // 
             // FormNamespaceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelJobs);
+            this.Controls.Add(this.labelPods);
             this.Controls.Add(this.buttonDeleteJob);
             this.Controls.Add(this.buttonCreateJob);
             this.Controls.Add(this.buttonRefreshInstances);
@@ -230,7 +254,6 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelReplicaSets);
-            this.Controls.Add(this.labelPods);
             this.Controls.Add(this.labelErrors);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormNamespaceDashboard";
@@ -260,5 +283,7 @@
         private System.Windows.Forms.Button buttonRefreshInstances;
         private System.Windows.Forms.Button buttonCreateJob;
         private System.Windows.Forms.Button buttonDeleteJob;
+        private System.Windows.Forms.Label labelJobs;
+        private System.Windows.Forms.Label label2;
     }
 }
