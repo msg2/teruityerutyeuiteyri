@@ -49,6 +49,8 @@
             this.labelJobs = new System.Windows.Forms.Label();
             this.buttonCreateService = new System.Windows.Forms.Button();
             this.buttonDeleteService = new System.Windows.Forms.Button();
+            this.buttonCreatePod = new System.Windows.Forms.Button();
+            this.buttonDeletePod = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDeploy
@@ -255,11 +257,34 @@
             this.buttonDeleteService.UseVisualStyleBackColor = true;
             this.buttonDeleteService.Click += new System.EventHandler(this.buttonDeleteService_Click);
             // 
+            // buttonCreatePod
+            // 
+            this.buttonCreatePod.Location = new System.Drawing.Point(526, 219);
+            this.buttonCreatePod.Name = "buttonCreatePod";
+            this.buttonCreatePod.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonCreatePod.Size = new System.Drawing.Size(131, 23);
+            this.buttonCreatePod.TabIndex = 58;
+            this.buttonCreatePod.Text = "Create Pod";
+            this.buttonCreatePod.UseVisualStyleBackColor = true;
+            this.buttonCreatePod.Click += new System.EventHandler(this.buttonCreatePod_Click);
+            // 
+            // buttonDeletePod
+            // 
+            this.buttonDeletePod.Location = new System.Drawing.Point(526, 261);
+            this.buttonDeletePod.Name = "buttonDeletePod";
+            this.buttonDeletePod.Size = new System.Drawing.Size(131, 23);
+            this.buttonDeletePod.TabIndex = 59;
+            this.buttonDeletePod.Text = "Delete Pod";
+            this.buttonDeletePod.UseVisualStyleBackColor = true;
+            this.buttonDeletePod.Click += new System.EventHandler(this.buttonDeletePod_Click);
+            // 
             // FormNamespaceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDeletePod);
+            this.Controls.Add(this.buttonCreatePod);
             this.Controls.Add(this.buttonDeleteService);
             this.Controls.Add(this.buttonCreateService);
             this.Controls.Add(this.label2);
@@ -312,5 +337,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonCreateService;
         private System.Windows.Forms.Button buttonDeleteService;
+        private System.Windows.Forms.Button buttonCreatePod;
+        private System.Windows.Forms.Button buttonDeletePod;
     }
 }

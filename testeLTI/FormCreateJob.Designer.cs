@@ -45,11 +45,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.labelErrors = new System.Windows.Forms.Label();
             this.comboBoxRestartPolicy = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(684, 285);
+            this.buttonCreate.Location = new System.Drawing.Point(657, 275);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(75, 23);
             this.buttonCreate.TabIndex = 0;
@@ -60,17 +61,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 114);
+            this.label1.Location = new System.Drawing.Point(87, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Name";
+            this.label1.Text = "Name:";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(94, 114);
+            this.textBoxName.Location = new System.Drawing.Point(131, 130);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.Size = new System.Drawing.Size(121, 20);
             this.textBoxName.TabIndex = 2;
             // 
             // label3
@@ -160,32 +161,31 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(53, 179);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Restart Policy";
+            this.label2.Text = "Restart Policy:";
             // 
             // textBoxCommand
             // 
-            this.textBoxCommand.Location = new System.Drawing.Point(72, 252);
+            this.textBoxCommand.Location = new System.Drawing.Point(130, 227);
             this.textBoxCommand.Name = "textBoxCommand";
-            this.textBoxCommand.Size = new System.Drawing.Size(238, 20);
+            this.textBoxCommand.Size = new System.Drawing.Size(122, 20);
             this.textBoxCommand.TabIndex = 31;
-            this.textBoxCommand.Text = "\"perl\",  \"-Mbignum=bpi\", \"-wle\", \"print bpi(2000)\"";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 255);
+            this.label7.Location = new System.Drawing.Point(67, 230);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 32;
-            this.label7.Text = "Command";
+            this.label7.Text = "Command:";
             // 
             // labelErrors
             // 
             this.labelErrors.AutoSize = true;
             this.labelErrors.ForeColor = System.Drawing.Color.Red;
-            this.labelErrors.Location = new System.Drawing.Point(702, 186);
+            this.labelErrors.Location = new System.Drawing.Point(662, 252);
             this.labelErrors.Name = "labelErrors";
             this.labelErrors.Size = new System.Drawing.Size(0, 13);
             this.labelErrors.TabIndex = 33;
@@ -201,11 +201,21 @@
             this.comboBoxRestartPolicy.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRestartPolicy.TabIndex = 34;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(78, 252);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(218, 13);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "e.g.:perl,  -Mbignum=bpi, -wle, print bpi(2000)";
+            // 
             // FormCreateJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxRestartPolicy);
             this.Controls.Add(this.labelErrors);
             this.Controls.Add(this.label7);
@@ -250,5 +260,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelErrors;
         private System.Windows.Forms.ComboBox comboBoxRestartPolicy;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -185,6 +185,41 @@ namespace testeLTI
                 }
             }
         }
+
+        private void buttonCreatePod_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormCreatePod(selectedNamespace))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.criou)
+                    {
+
+                        System.Threading.Thread.Sleep(2000); //dar tempo para os dados do dashboard atualizarem
+                        labelDeployment.Text = "Pod sucessfully created ";
+                        this.FormNamespaceDashboard_Load(sender, e);
+                    }
+                }
+            }
+        }
+
+        private void buttonDeletePod_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormDeletePod(selectedNamespace))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (form.apagou)
+                    {
+                        System.Threading.Thread.Sleep(2000); //dar tempo para os dados do dashboard atualizarem
+                        labelDeployment.Text = "Pod eliminated sucessfully";
+                        this.FormNamespaceDashboard_Load(sender, e);
+                    }
+                }
+            }
+        }
     }
 
 }

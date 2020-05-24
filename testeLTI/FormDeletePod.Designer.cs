@@ -1,6 +1,6 @@
 ﻿namespace testeLTI
 {
-    partial class FormDeleteJob
+    partial class FormDeletePod
     {
         /// <summary>
         /// Required designer variable.
@@ -36,17 +36,17 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(35, 80);
+            this.listBox1.Location = new System.Drawing.Point(78, 86);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(286, 134);
-            this.listBox1.TabIndex = 11;
+            this.listBox1.TabIndex = 12;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(379, 136);
+            this.buttonDelete.Location = new System.Drawing.Point(397, 132);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 13;
+            this.buttonDelete.TabIndex = 14;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
@@ -55,12 +55,12 @@
             // 
             this.labelErrors.AutoSize = true;
             this.labelErrors.ForeColor = System.Drawing.Color.Red;
-            this.labelErrors.Location = new System.Drawing.Point(386, 183);
+            this.labelErrors.Location = new System.Drawing.Point(404, 184);
             this.labelErrors.Name = "labelErrors";
             this.labelErrors.Size = new System.Drawing.Size(0, 13);
-            this.labelErrors.TabIndex = 14;
+            this.labelErrors.TabIndex = 15;
             // 
-            // FormDeleteJob
+            // FormDeletePod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,9 +68,9 @@
             this.Controls.Add(this.labelErrors);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.listBox1);
-            this.Name = "FormDeleteJob";
-            this.Text = "FormDeleteJob";
-            this.Load += new System.EventHandler(this.FormDeleteJob_Load);
+            this.Name = "FormDeletePod";
+            this.Text = "FormDeletePod";
+            this.Load += new System.EventHandler(this.FormDeletePod_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

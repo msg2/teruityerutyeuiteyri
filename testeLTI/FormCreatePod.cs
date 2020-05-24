@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace testeLTI
 {
-    public partial class FormCreateJob : Form
+    public partial class FormCreatePod : Form
     {
         String selectedNamespace;
         public bool criou { get; set; }
         WebClient myWebClient = new WebClient();
 
-        public FormCreateJob(String selectedNamespace)
+        public FormCreatePod(String selectedNamespace)
         {
             InitializeComponent();
             this.selectedNamespace = selectedNamespace;
@@ -26,8 +26,9 @@ namespace testeLTI
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+
             labelErrors.Text = "";
-            if (textBoxName.Text.Trim().Length < 1 || comboBoxRestartPolicy.SelectedIndex == -1 || textBoxCommand.Text.Trim() == "")
+            if (textBoxName.Text.Trim().Length < 1 || textBoxCommand.Text.Trim() == "" || textBoxArgs.Text.Trim() == "")
             {
                 labelErrors.Text = "Please fill all the camps ";
                 return;
@@ -69,9 +70,10 @@ namespace testeLTI
                 }
             }
 
-            String jobName = textBoxName.Text.ToLower().Trim();
-            var policyState = comboBoxRestartPolicy.SelectedItem.ToString();
-            var command = textBoxCommand.Text.ToLower().Trim();
+            String podName = textBoxName.Text.ToLower().Trim();
+            String command = textBoxCommand.Text.ToLower().Trim();
+            String args = textBoxArgs.Text.ToLower().Trim();
+
 
             string image = null;
             if (checkBoxManualImage.Checked == false)
@@ -84,8 +86,8 @@ namespace testeLTI
             }
             try
             {
-                String url = "http://127.0.0.1:8081/apis/batch/v1/namespaces/" + selectedNamespace.Trim() + "/jobs";
-                var body = "{\"apiVersion\": \"batch/v1\",\"kind\": \"Job\",\"metadata\": {\"name\": \""+jobName+"\"},\"spec\": {\"template\": {\"metadata\": {\"name\": \""+jobName+"\"},\"spec\": {\"containers\": [{\"name\": \""+jobName+"\",\"image\": \""+image+ "\",\"command\": [\""+command +"\"]}],\"restartPolicy\": \"" + policyState+"\"}}}}";
+                String url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace.Trim() + "/pods";
+                var body = "{\"apiVersion\": \"v1\",\"kind\": \"Pod\",\"metadata\": {\"name\": \""+podName+"\"},\"spec\": {\"containers\": [{\"name\": \""+podName+"\",\"image\": \""+ image + "\",\"command\": [\""+command+"\"],\"args\": [\"" + args+"\"]}]}}";
 
                 Console.WriteLine(url);
                 Console.WriteLine(body);
@@ -99,7 +101,7 @@ namespace testeLTI
             }
             catch (Exception ex)
             {
-               labelErrors.Text = "Erro: " + ex.Message;
+                labelErrors.Text = "Erro: " + ex.Message;
                 Console.WriteLine("Error: " + ex.Message.ToString());
 
             }
@@ -129,7 +131,7 @@ namespace testeLTI
             }
         }
 
-        private void FormCreateJob_Load(object sender, EventArgs e)
+        private void FormCreatePod_Load(object sender, EventArgs e)
         {
             listView1.Columns.Add("Name");
             listView1.Columns.Add("Description");
@@ -153,5 +155,6 @@ namespace testeLTI
                 textBoxManualImage.Enabled = true;
             }
         }
+
     }
 }
