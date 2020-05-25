@@ -27,7 +27,7 @@ namespace testeLTI
         {
             WebClient myWebClient = new WebClient();
 
-            string url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/" + selectedNamespace + "/deployments";
+            string url = "http://" + IpAddress.ip_address + "/apis/apps/v1/namespaces/" + selectedNamespace + "/deployments";
             var responseString = myWebClient.DownloadString(url);
 
             var deployments = JObject.Parse(responseString);
@@ -57,7 +57,7 @@ namespace testeLTI
             {
                 try
                 {
-                    String url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/"+selectedNamespace+"/deployments/"+ deployment;
+                    String url = "http://" + IpAddress.ip_address + "/apis/apps/v1/namespaces/"+selectedNamespace+"/deployments/"+ deployment;
                     // var responseString = myWebClient.DownloadString(url);
 
                     WebRequest request = WebRequest.Create(url);

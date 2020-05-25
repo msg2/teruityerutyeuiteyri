@@ -27,7 +27,7 @@ namespace testeLTI
         {
             WebClient myWebClient = new WebClient();
 
-            string url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace + "/pods";
+            string url = "http://" + IpAddress.ip_address + "/api/v1/namespaces/" + selectedNamespace + "/pods";
             var responseString = myWebClient.DownloadString(url);
 
             var pods = JObject.Parse(responseString);
@@ -54,7 +54,7 @@ namespace testeLTI
             {
                 try
                 {
-                    String url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace + "/pods/" + pod;
+                    String url = "http://" + IpAddress.ip_address + "/api/v1/namespaces/" + selectedNamespace + "/pods/" + pod;
 
                     WebRequest request = WebRequest.Create(url);
                     request.Method = "DELETE";

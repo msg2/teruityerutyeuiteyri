@@ -86,7 +86,7 @@ namespace testeLTI
             }
             try
             {
-                String url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace.Trim() + "/pods";
+                String url = "http://" + IpAddress.ip_address + "/api/v1/namespaces/" + selectedNamespace.Trim() + "/pods";
                 var body = "{\"apiVersion\": \"v1\",\"kind\": \"Pod\",\"metadata\": {\"name\": \""+podName+"\"},\"spec\": {\"containers\": [{\"name\": \""+podName+"\",\"image\": \""+ image + "\",\"command\": [\""+command+"\"],\"args\": [\"" + args+"\"]}]}}";
 
                 Console.WriteLine(url);

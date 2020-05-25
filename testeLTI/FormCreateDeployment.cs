@@ -87,7 +87,7 @@ namespace testeLTI
 
             try
             {
-                String url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/" + selectedNamespace.Trim() + "/deployments";
+                String url = "http://" + IpAddress.ip_address + "/apis/apps/v1/namespaces/" + selectedNamespace.Trim() + "/deployments";
                 var body = "{\"apiVersion\": \"apps/v1\",\"kind\": \"Deployment\",\"metadata\": {\"name\": \"" + deploymentName + "\",\"labels\": {\"app\": \""+label+"\"}},\"spec\": {\"replicas\": " + podsNumber + ",\"selector\": {\"matchLabels\": {\"app\": \""+label+"\"}},\"template\": {\"metadata\": {\"labels\": {\"app\": \""+label+"\"}},\"spec\": {\"containers\": [{\"name\": \""+image+"\",\"image\": \""+image+":latest\",\"ports\": [{\"containerPort\": " + port +"}]}]}}}}";
 
                 Console.WriteLine(url);

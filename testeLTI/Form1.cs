@@ -172,26 +172,47 @@ namespace testeLTI
 
         private void buttonGetNamespaces_Click(object sender, EventArgs e)
         {
+            if (textBoxIP.Text.Trim().Length==0)
+            {
+                labelErrorGetNamespace.Text = "Insira um Ip valido";
+                return;
+            }
+
+            IpAddress.ip_address = textBoxIP.Text.Trim();
+
             var myWebClient = new WebClient();
             labelErrorGetNamespace.Text = "";
             listBoxNamespaces.Items.Clear();
 
-            var config = new KubernetesClientConfiguration { Host = "http://127.0.0.1:8081" };
+            var config = new KubernetesClientConfiguration { Host = "http://"+IpAddress.ip_address };
             client = new Kubernetes(config);
 
-            var namespaces = client.ListNamespace();
-            if (namespaces.Items.Count == 0)
+            var namespaces = new k8s.Models.V1NamespaceList();
+            try
             {
-                labelErrorGetNamespace.Text = "Não existe qualquer namespace";
-            }
-            else
-            {
-                foreach (var ns in namespaces.Items)
+                 namespaces = client.ListNamespace();
+
+                if (namespaces.Items.Count == 0)
                 {
-                    Console.WriteLine(ns.Metadata.Name);
-                    listBoxNamespaces.Items.Add(ns.Metadata.Name);
+                    labelErrorGetNamespace.Text = "Não existe qualquer namespace";
                 }
+                else
+                {
+                    foreach (var ns in namespaces.Items)
+                    {
+                        Console.WriteLine(ns.Metadata.Name);
+                        listBoxNamespaces.Items.Add(ns.Metadata.Name);
+                    }
+                }
+
             }
+            catch (Exception ex)
+            {
+                labelErrorGetNamespace.Text = "Error: " + ex.Message;
+                Console.WriteLine("ERROR: "+ex.Message);
+
+            }
+            
         }
 
         private void buttonSelectNamespace_Click(object sender, EventArgs e)
@@ -211,5 +232,6 @@ namespace testeLTI
 
         }
 
+  
     }
 }

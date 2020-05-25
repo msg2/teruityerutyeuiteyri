@@ -353,6 +353,7 @@
       <DependentUpon>FormNamespaceDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Image.cs" />
+    <Compile Include="IpAddress.cs" />
     <Compile Include="NamespacesList.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="NSPods.cs" />

@@ -84,7 +84,7 @@ namespace testeLTI
             }
             try
             {
-                String url = "http://127.0.0.1:8081/apis/batch/v1/namespaces/" + selectedNamespace.Trim() + "/jobs";
+                String url = "http://" + IpAddress.ip_address + "/apis/batch/v1/namespaces/" + selectedNamespace.Trim() + "/jobs";
                 var body = "{\"apiVersion\": \"batch/v1\",\"kind\": \"Job\",\"metadata\": {\"name\": \""+jobName+"\"},\"spec\": {\"template\": {\"metadata\": {\"name\": \""+jobName+"\"},\"spec\": {\"containers\": [{\"name\": \""+jobName+"\",\"image\": \""+image+ "\",\"command\": [\""+command +"\"]}],\"restartPolicy\": \"" + policyState+"\"}}}}";
 
                 Console.WriteLine(url);

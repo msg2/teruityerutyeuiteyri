@@ -41,7 +41,7 @@ namespace testeLTI
             try
             {
 
-                String url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace.Trim() + "/services";
+                String url = "http://" + IpAddress.ip_address + "/api/v1/namespaces/" + selectedNamespace.Trim() + "/services";
                 var body = "{\"kind\": \"Service\",\"apiVersion\": \"v1\",\"metadata\": {\"name\": \""+name+"\",\"namespace\": \""+selectedNamespace+"\"},\"spec\": {\"ports\": [{\"port\": "+port+",\"targetPort\": "+portTarget+"}],\"selector\": {\"app\": \""+label+"\"},\"type\": \"ClusterIP\"}}";
 
                 Console.WriteLine(url);

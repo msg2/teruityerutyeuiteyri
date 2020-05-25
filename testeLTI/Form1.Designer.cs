@@ -48,6 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxIP = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,7 +152,7 @@
             // 
             // buttonGetNamespaces
             // 
-            this.buttonGetNamespaces.Location = new System.Drawing.Point(67, 389);
+            this.buttonGetNamespaces.Location = new System.Drawing.Point(22, 119);
             this.buttonGetNamespaces.Name = "buttonGetNamespaces";
             this.buttonGetNamespaces.Size = new System.Drawing.Size(113, 23);
             this.buttonGetNamespaces.TabIndex = 11;
@@ -217,7 +220,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(72, 355);
+            this.label3.Location = new System.Drawing.Point(28, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 15);
             this.label3.TabIndex = 18;
@@ -226,9 +229,13 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.textBoxIP);
+            this.panel1.Controls.Add(this.buttonGetNamespaces);
             this.panel1.Location = new System.Drawing.Point(44, 322);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(159, 123);
+            this.panel1.Size = new System.Drawing.Size(159, 168);
             this.panel1.TabIndex = 19;
             // 
             // panel2
@@ -241,18 +248,33 @@
             this.panel2.Size = new System.Drawing.Size(159, 224);
             this.panel2.TabIndex = 20;
             // 
+            // textBoxIP
+            // 
+            this.textBoxIP.Location = new System.Drawing.Point(29, 69);
+            this.textBoxIP.Name = "textBoxIP";
+            this.textBoxIP.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIP.TabIndex = 21;
+            this.textBoxIP.Text = "127.0.0.1:8081";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "IpAddress:Porto";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 502);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.labelErrorSelectNamespace);
             this.Controls.Add(this.labelErrorGetNamespace);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSelectNamespace);
             this.Controls.Add(this.listBoxNamespaces);
-            this.Controls.Add(this.buttonGetNamespaces);
             this.Controls.Add(this.labelErrorNoConnection);
             this.Controls.Add(this.labelErrorNoProject);
             this.Controls.Add(this.buttonProjectSelected);
@@ -266,6 +288,8 @@
             this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.Text = "Login Page";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -295,6 +319,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBoxIP;
+        private System.Windows.Forms.Label label4;
     }
 }
 

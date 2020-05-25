@@ -29,6 +29,7 @@ namespace testeLTI
 
         private void FormNamespaceDashboard_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("teste ip: "+IpAddress.ip_address);
             try
             {
                 var podsList = client.ListNamespacedPod(selectedNamespace);
@@ -59,7 +60,7 @@ namespace testeLTI
                 deploymentName = "dddd";//passar sempre para lowecases
 
                 var myWebClient = new WebClient();
-                String url = "http://127.0.0.1:8081/apis/apps/v1/namespaces/" + selectedNamespace.Trim() + "/deployments";
+                String url = "http://" + IpAddress.ip_address + "/apis/apps/v1/namespaces/" + selectedNamespace.Trim() + "/deployments";
                 //var body = "{\"apiVersion\": \"apps/v1\",\"kind\": \"Deployment\",\"metadata\": {\"name\": \"deploymentexample\"},\"spec\": {\"replicas\": 3,\"revisionHistoryLimit\": 10,\"template\": {\"metadata\": {\"labels\": {\"app\": \"nginx\"}},\"spec\": {\"containers\": {\"name\": \"nginx\",\"image\": \"nginx:1.11\",\"ports\": {\"containerPort\": 80}}}}}}";
                 var body = "{\"apiVersion\": \"apps/v1\",\"kind\": \"Deployment\",\"metadata\": {\"name\": \""+deploymentName+"\",\"labels\": {\"app\": \"nginx\"}},\"spec\": {\"replicas\": 3,\"selector\": {\"matchLabels\": {\"app\": \"nginx\"}},\"template\": {\"metadata\": {\"labels\": {\"app\": \"nginx\"}},\"spec\": {\"containers\": [{\"name\": \"nginx\",\"image\": \"nginx:1.14.2\",\"ports\": [{\"containerPort\": 80}]}]}}}}";
 

@@ -27,7 +27,7 @@ namespace testeLTI
         {
             WebClient myWebClient = new WebClient();
 
-            string url = "http://127.0.0.1:8081/apis/batch/v1/namespaces/" + selectedNamespace + "/jobs";
+            string url = "http://" + IpAddress.ip_address + "/apis/batch/v1/namespaces/" + selectedNamespace + "/jobs";
             var responseString = myWebClient.DownloadString(url);
 
             var jobs = JObject.Parse(responseString);
@@ -54,7 +54,7 @@ namespace testeLTI
             {
                 try
                 {
-                    String url = "http://127.0.0.1:8081/apis/batch/v1/namespaces/" + selectedNamespace + "/jobs/" + job;
+                    String url = "http://" + IpAddress.ip_address + "/apis/batch/v1/namespaces/" + selectedNamespace + "/jobs/" + job;
                    
                     WebRequest request = WebRequest.Create(url);
                     request.Method = "DELETE";

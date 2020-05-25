@@ -40,7 +40,7 @@ namespace testeLTI
             {
                 try
                 {
-                    String url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace + "/services/" + service;
+                    String url = "http://" + IpAddress.ip_address + "/api/v1/namespaces/" + selectedNamespace + "/services/" + service;
 
                     WebRequest request = WebRequest.Create(url);
                     request.Method = "DELETE";
@@ -76,7 +76,7 @@ namespace testeLTI
 
         private void FormDeleteService_Load(object sender, EventArgs e)
         {
-            string url = "http://127.0.0.1:8081/api/v1/namespaces/" + selectedNamespace + "/services";
+            string url = "http://" + IpAddress.ip_address + "/api/v1/namespaces/" + selectedNamespace + "/services";
             var responseString = myWebClient.DownloadString(url);
 
             var services = JObject.Parse(responseString);
