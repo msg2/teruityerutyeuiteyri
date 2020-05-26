@@ -31,6 +31,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.labelErrors = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonDelete
@@ -60,11 +61,22 @@
             this.listBox1.Size = new System.Drawing.Size(286, 134);
             this.listBox1.TabIndex = 13;
             // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(64, 56);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(65, 15);
+            this.labelTitle.TabIndex = 42;
+            this.labelTitle.Text = "Services:";
+            // 
             // FormDeleteService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelErrors);
             this.Controls.Add(this.listBox1);
@@ -81,5 +93,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Label labelErrors;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label labelTitle;
     }
 }
